@@ -19,4 +19,14 @@ def main():
     troll = OrcRace("troll", 25, 10, 8)
     tauren = OrcRace("tauren", 35, 40, 25)
 
+    # zrupowanie obiektów w liście
+    list_of_units = []
+    list_of_units.append(orc)
+    list_of_units.append(troll)
+    list_of_units.append(tauren)
+
+    for unit in list_of_units:
+        unit.attack()
+        unit.go_to(50, 50)
+
 main()
