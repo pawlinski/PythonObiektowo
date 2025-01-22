@@ -12,4 +12,11 @@ class OrcRace:
         print(f"{self.name} zadał {self.damage} obrażeń!")
 
     def go_to(self, x, y):
-        print(f"Idziesz do współrzędnych: {x}, {y}")
+        print(f"{self.name} idzie do współrzędnych: {x}, {y}")
+
+def main():
+    orc = OrcRace("ork", 20, 20, 10)
+    troll = OrcRace("troll", 25, 10, 8)
+    tauren = OrcRace("tauren", 35, 40, 25)
+
+main()
