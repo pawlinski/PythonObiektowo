@@ -6,6 +6,7 @@ class Employee:
         self.surename = surename
         self.email = email
         self.monthly_salary = salary
+        Employee.count += 1 # zlicza ilość utworzonych obiektów
 
     # metoda oblicza i zwraca wynagrodzenie roczne pracownika
     def get_annual_salary(self):
@@ -26,7 +27,6 @@ def main():
     list_of_employee.append(employee_03)
 
     for employee in list_of_employee:
-        employee.count += 1 # zlicza ilość pracowników
         print(f"{employee.name} {employee.surename} zarabia rocznie {employee.get_annual_salary()} zł.")
         employee.show_employee_information()
 
