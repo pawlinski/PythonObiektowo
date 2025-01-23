@@ -46,4 +46,10 @@ def main():
     print('W bibliotece są następujące tytuły:')
     libr_01.show_books()
 
+    libr_02 = Library(('PHP', 'CSS', 'C#'))
+    print(f'W bibliotece 2 są obecnie {libr_02.number_of_books} książki.')
+
+    print('W bibliotece 2 są następujące tytuły:')
+    libr_02.show_books()
+
 main()
