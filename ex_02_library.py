@@ -1,23 +1,23 @@
 class Library:
 
     def __init__(self, books=None):
-        self.books = books = set()
+        self._books = set()
 
     @property
     def number_of_books(self):
-        return len(self.books)
+        return len(self._books)
 
     def add_book(self, book):
-        self.books.add(book)
+        self._books.add(book)
 
     def borrow_book(self, book):
         try:
-            self.books.remove(book)
+            self._books.remove(book)
         except KeyError:
             print(f'Książki {book} nie ma w bibliotece.')
 
     def show_books(self):
-        for book in self.books:
+        for book in self._books:
             print(book)
 
 def main():
