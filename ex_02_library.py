@@ -2,6 +2,10 @@ class Library:
 
     def __init__(self, books=None):
         self._books = set()
+        # jeżeli zostaną podane książki w argumencie, to funkcja doda je do biblioteki
+        if books:
+            for book in books:
+                self.add_book(book)
 
     @property
     def number_of_books(self):
@@ -26,6 +30,7 @@ def main():
     libr_01.add_book('Ania z Zielonego Wzgórza')
     libr_01.add_book('Gwiezdne Wojny')
     libr_01.add_book('Maroko')
+    libr_01.add_book('Kubuś Puchatek')
     libr_01.add_book('Kubuś Puchatek')
 
     print(f'Dodałem {libr_01.number_of_books} książek do biblioteki')
