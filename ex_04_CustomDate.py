@@ -1,12 +1,14 @@
-import datetime
+from datetime import datetime
 
 class CustomDate:
     def __init__(self, day, month, year):
+        self.date_validation(day, month, year) # używam metody statycznej jeszcze przed stworzeniem obiektu
+
         self.day = day
         self.month = month
         self.year = year
-        if not datetime.date(self.year, self.month, self.day):
-            raise ValueError('Not valid date!')
+        # if not datetime.date(self.year, self.month, self.day):
+        #     raise ValueError('Not valid date!')
 
     def __repr__(self):
         if self.day < 10:
@@ -30,15 +32,23 @@ class CustomDate:
             objects_array.append(date_object) # dodajemy obiekt do listy
         return objects_array # zwracamy listę obiektów
 
+    @staticmethod # nie korzysta z atrybutów klasy ani instancji
+    def date_validation(day, month, year): # validacja poprawności formatu daty
+        try:
+            datetime(year, month, day)
+        except ValueError:
+            raise ValueError('Not valid date! Hator, Hator!')
+
 def main():
     print(CustomDate(17, 4, 1979))
     print(CustomDate(7, 4, 1979))
     print('----------------------------')
     print(CustomDate.from_text("17-4-1979"))
-    print(CustomDate(21,5,2021))
     print('-----------FROM TEXT FILE-----------------')
     array_of_date = CustomDate.from_text_file("ex_04_text_file.txt")
     for date in array_of_date:
         print(date)
+    # print('-----------TEST VALIDATION-----------------')
+    # print(CustomDate(21, 55, 2021))
 
 main()
