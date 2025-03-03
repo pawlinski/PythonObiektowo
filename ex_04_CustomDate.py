@@ -20,11 +20,25 @@ class CustomDate:
         day, month, year = text.split('-')
         return cls(int(day), int(month), int(year))
 
+    @classmethod
+    def from_text_file(cls, file):
+        objects_array = [] # tworzymy listę, do której będziemy dodawać kolejne obiekty
+        with open(file, "r") as text_file: # otwieramy plik do odczytu (plik automatycznie się zamknie po odczycie)
+            text_data = text_file.read().splitlines() #usuwamy znaki "new line"
+        for date in text_data: # iterujemy po dacie
+            date_object = cls.from_text(date) # tworzymy obiekt klasy CustomDate i przekazujemy do jego metody date
+            objects_array.append(date_object) # dodajemy obiekt do listy
+        return objects_array # zwracamy listę obiektów
+
 def main():
     print(CustomDate(17, 4, 1979))
     print(CustomDate(7, 4, 1979))
     print('----------------------------')
     print(CustomDate.from_text("17-4-1979"))
-    print(CustomDate(41,5,2021))
+    print(CustomDate(21,5,2021))
+    print('-----------FROM TEXT FILE-----------------')
+    array_of_date = CustomDate.from_text_file("ex_04_text_file.txt")
+    for date in array_of_date:
+        print(date)
 
 main()
