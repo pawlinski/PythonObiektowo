@@ -1,3 +1,5 @@
+# zjawisko polimorfizmu
+
 class SpaceShip: # tworzymy "interfejs"
     def attack(self):
         raise NotImplementedError('Attack method must be implemented')
